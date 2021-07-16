@@ -13,11 +13,6 @@ class Server {
         this.server = http.createServer(this.app);
         //Configuración sockets
         this.io = socketio(this.server, {
-            cors: {
-                      origin: "https://socket-io-yael.herokuapp.com/",
-                      methods: ["GET", "POST"],
-                      credentials: true
-                }
         });
     }
 
