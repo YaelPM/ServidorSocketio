@@ -12,7 +12,11 @@ class Server {
         //Http server
         this.server = http.createServer(this.app);
         //Configuración sockets
-        this.io = socketio(this.server, {});
+        this.io = socketio(this.server, {
+            cors: {
+                  methods: ["GET", "POST"]
+                }
+        });
     }
 
     middlewares() {
