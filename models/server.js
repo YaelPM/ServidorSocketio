@@ -7,7 +7,6 @@ const Sockets = require('./socket');
 class Server {
     constructor() {
         this.app = express();
-        this.port = process.env.PORT;
 
         //Http server
         this.server = http.createServer(this.app);
@@ -30,9 +29,7 @@ class Server {
 
         this.initSockets();
 
-        this.server.listen(this.port, () => {
-            console.log('Server run puerto ', this.port)
-        })
+        this.server.listen(3000, ()=>{console.log('Server inicializado')})
     }
 }
 
