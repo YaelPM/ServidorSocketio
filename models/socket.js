@@ -4,6 +4,7 @@ class Sockets {
         this.io = io;
 
         this.socketEvents();
+        this.players=[]
     }
 
     socketEvents() {
@@ -14,6 +15,7 @@ class Sockets {
 
                 this.io.emit('msj-output-client', data);
             })
+            
             
             client.emit('connection', 'Conexion exitosa')
 
