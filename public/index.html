@@ -16,10 +16,7 @@
         <h1>Escribeme algo</h1>
         
         <div class="card" style="width: 18rem; background-color: darkcyan;">
-            <form action="" id="frmMsj">
-            <input type="text" id="inputMsj">
-            <button>Enviar</button>
-            </form>
+
             <h3>Mensajes</h3>
             <ul id="idMsj"></ul>
 
@@ -33,23 +30,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         const socket = io('http://localhost:3000/')
-        const frm = document.querySelector('#frmMsj')
         const idMsj = document.querySelector('#idMsj')
-        const inputMsj = document.querySelector('#inputMsj')
 
-        socket.on('primer-socket', (data) => {
-            console.log(data);
-        });
-
-        frm.addEventListener('submit', (ev) => {
-            ev.preventDefault();
-
-            const msj = inputMsj.value;
-            console.log(msj)
-
-            socket.emit('msj-input-server', { txt: msj })
-
-        });
 
         socket.on('msj-output-client', (data) => {
             console.log(data);
