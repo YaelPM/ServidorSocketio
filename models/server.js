@@ -7,11 +7,14 @@ const Sockets = require('./socket');
 class Server {
     constructor() {
         this.app = express();
+        this.port = process.env.PORT;
 
         //Http server
         this.server = http.createServer(this.app);
         //Configuración sockets
         this.io = socketio(this.server, {
+            
+            
         });
     }
 
@@ -29,7 +32,9 @@ class Server {
 
         this.initSockets();
 
-        this.server.listen(3000, ()=>{console.log('Server inicializado')})
+        this.server.listen(3000 || this.port, () => {
+            console.log('Servidor activado')
+        })
     }
 }
 

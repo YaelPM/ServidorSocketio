@@ -14,6 +14,8 @@ class Sockets {
 
                 this.io.emit('msj-output-client', data);
             })
+            
+            client.emit('connection', 'Conexion exitosa')
 
         });
     }
