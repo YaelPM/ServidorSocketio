@@ -3,21 +3,16 @@ class Sockets {
 
     constructor(io) {
         this.io = io;
-
         this.socketEvents();
         this.players=[]
-        this.player=0;
-    }
-    twoPlayers(){
-
+        this.player=0
     }
 
     socketEvents() {
         this.io.on('connection', client => {
             
             client.on('msj-input-server', (data) => {
-                console.log(data);
-
+                console.log(data)
                 this.io.emit('msj-output-client', data);
             })
 
@@ -29,14 +24,10 @@ class Sockets {
 
                 this.player++
                 this.players.push(this.player)
-                console.log(this.player)
                 if(this.player%2==1){
                     client.emit('cambio', 'O')
                 }
             })
-
-
-            console.log(this.players)
             
             client.emit('connection', 'Conexion exitosa')
 

@@ -32,7 +32,7 @@ class Server {
 
         this.initSockets();
 
-        this.server.listen(3000 || this.port, () => {
+        this.server.listen(3001 || this.port, () => {
             console.log('Servidor activado')
         })
     }
