@@ -21,14 +21,15 @@ class Sockets {
             })
 
             client.on('listo', ()=>{
-
-                this.player++
-                this.players.push(this.player)
+                this.players.push(client)
                 if(this.player%2==1){
-                    client.emit('cambio', 'O')
+                    client.emit('segundo', this.players[this.player-1].id)
+                    this.players[this.player-1].emit('primero', client.id)
                 }
+                console.log("Cliente actual: "+this.player+"  "+client.id)
+                this.player++
             })
-            
+
             client.emit('connection', 'Conexion exitosa')
 
         });
